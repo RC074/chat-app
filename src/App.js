@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import {
   collection,
@@ -15,8 +15,18 @@ const App = () => {
   const [messageHistory, setMessageHistory] = useState([]);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  useEffect(() => {
+    scrollToBottom();
     const fetchMessages = async () => {
       let fetchedMessages = [];
       let history = [];
@@ -150,16 +160,25 @@ const App = () => {
           <div className="messages-content">
             {messages.map((msg, index) =>
               !(msg.role === "user") ? (
-                <div className="message">
+                <div
+                  className="message"
+                  ref={messages.length === index + 1 ? messagesEndRef : null}
+                >
                   <figure className="avatar">
                     <img src={chatgptAvatar} alt="avatar" />
                   </figure>
                   {msg.content}
                 </div>
               ) : (
-                <div className="message message-personal">{msg.content}</div>
+                <div
+                  ref={messages.length === index + 1 ? messagesEndRef : null}
+                  className="message message-personal"
+                >
+                  {msg.content}
+                </div>
               )
             )}
+            <div />
           </div>
         </div>
         <div className="message-box">
