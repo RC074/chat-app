@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/chat-app/static/css/main.7fba2f98.css",
-    "main.js": "/chat-app/static/js/main.a4c56b71.js",
+    "main.js": "/chat-app/static/js/main.b40ca1cd.js",
     "static/media/chatgpt-logo.png": "/chat-app/static/media/chatgpt-logo.f54cb80c468e9edfa7a9.png",
     "index.html": "/chat-app/index.html",
     "main.7fba2f98.css.map": "/chat-app/static/css/main.7fba2f98.css.map",
-    "main.a4c56b71.js.map": "/chat-app/static/js/main.a4c56b71.js.map"
+    "main.b40ca1cd.js.map": "/chat-app/static/js/main.b40ca1cd.js.map"
   },
   "entrypoints": [
     "static/css/main.7fba2f98.css",
-    "static/js/main.a4c56b71.js"
+    "static/js/main.b40ca1cd.js"
   ]
 }
